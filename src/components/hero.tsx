@@ -74,12 +74,12 @@ export function Hero() {
     <section
       id="hero"
       ref={rootRef}
-      className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-bg px-4 md:px-8"
+      className="relative flex h-dvh flex-col items-center justify-center overflow-hidden bg-bg px-4 md:px-8"
     >
       <div className="relative flex w-full flex-col items-center gap-4 md:gap-6">
         {/* Name — centered on mobile, left-aligned with wordmark on desktop */}
         <span className="w-full text-center font-display text-lg font-semibold tracking-tight text-fg md:text-2xl md:text-left md:self-start">
-          Muhammad Ibrahim
+          {NAME}
         </span>
 
         {/* Wordmark + portrait overlay */}
@@ -88,7 +88,7 @@ export function Hero() {
             data-wordmark
             aria-hidden
             className="pointer-events-none z-0 whitespace-nowrap text-center font-display font-bold leading-none text-white/[0.09]"
-            style={{ fontSize: "clamp(2.5rem, 14vw, 14rem)" }}
+            style={{ fontSize: "clamp(3.5rem, 14vw, 14rem)" }}
           >
             DEVELOPER
           </h1>
@@ -137,7 +137,7 @@ export function Hero() {
 
         {/* Role — centered on mobile, right-aligned on desktop */}
         <span className="w-full text-center font-display text-xs tracking-wide text-grey-2 md:text-sm md:text-right md:max-w-[40vw] md:self-end">
-          Providing Real-World AI Solutions
+          {ROLE}
         </span>
       </div>
 
