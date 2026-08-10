@@ -7,7 +7,7 @@ export function Skills() {
       <p className="mb-4 text-xs tracking-[0.3em] text-grey-2 uppercase">
         Toolkit
       </p>
-      <h2 className="mb-10 font-display text-4xl font-bold tracking-tight text-fg md:text-5xl lg:text-6xl">
+      <h2 className="mb-10 font-display text-5xl font-bold tracking-tight text-fg md:text-6xl lg:text-7xl xl:text-8xl">
         Skills
       </h2>
 

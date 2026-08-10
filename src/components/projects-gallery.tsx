@@ -171,7 +171,7 @@ export function ProjectsGallery() {
             {projects.map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}
-            <div className="w-[150vw] shrink-0" />
+            <div className="w-[30vw] shrink-0" />
           </div>
         )}
       </div>

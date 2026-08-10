@@ -32,7 +32,7 @@ export function Connect() {
         <p className="mb-4 text-xs tracking-[0.3em] text-grey-2 uppercase">
           Get in touch
         </p>
-        <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl md:text-7xl md:text-9xl">
+        <h2 className="font-display text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
           Let&rsquo;s
           <br />
           Connect
