@@ -74,76 +74,67 @@ export function Hero() {
     <section
       id="hero"
       ref={rootRef}
-      className="relative flex h-dvh flex-col items-center justify-center overflow-hidden bg-bg px-4 md:px-8"
+      className="relative flex h-dvh flex-col items-center justify-center overflow-hidden bg-bg"
     >
-      <div className="relative flex w-full flex-col items-center gap-4 md:gap-6">
-        {/* Name — centered on mobile, left-aligned with wordmark on desktop */}
-        <span className="w-full text-center font-display text-lg font-semibold tracking-tight text-fg md:text-2xl md:text-left md:self-start">
-          {NAME}
-        </span>
+      {/* Wordmark sits behind the photo; the photo's black background is
+          removed via blend mode so the type shows through. */}
+      <h1
+        data-wordmark
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 z-0 select-none whitespace-nowrap text-center font-display font-bold leading-none text-white/[0.09]"
+        style={{ fontSize: "clamp(3.5rem, 13vw, 13rem)" }}
+      >
+        DEVELOPER
+      </h1>
 
-        {/* Wordmark + portrait overlay */}
-        <div className="relative w-full flex flex-col items-center">
-          <h1
-            data-wordmark
-            aria-hidden
-            className="pointer-events-none z-0 whitespace-nowrap text-center font-display font-bold leading-none text-white/[0.09]"
-            style={{ fontSize: "clamp(3.5rem, 14vw, 14rem)" }}
-          >
-            DEVELOPER
-          </h1>
-
-          {/* Photo centered over the wordmark */}
-          <div
-            data-photo
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-            className="relative z-10 w-full flex justify-center pt-4 md:pt-8"
-            style={{ maxWidth: "100%" }}
-          >
-            <div
-              className="relative w-full max-w-[340px] aspect-[4/3] md:max-w-[400px] md:aspect-[1/1]"
-            >
-              <Image
-                src="/images/profile.png"
-                alt="Portrait"
-                fill
-                priority
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 340px"
-                className="object-contain mix-blend-screen grayscale contrast-[1.05]"
-              />
-              <div
-                ref={maskRef}
-                aria-hidden
-                className="absolute inset-0 opacity-0 transition-opacity duration-300"
-              >
-                <Image
-                  src="/images/profile.png"
-                  alt=""
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 340px"
-                  className="object-contain mix-blend-screen contrast-[1.05]"
-                />
-              </div>
-              <div
-                ref={ringRef}
-                aria-hidden
-                className="pointer-events-none absolute top-0 left-0 h-24 w-24 rounded-full border border-white/40 opacity-0 shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-opacity duration-300 will-change-transform"
-              />
-            </div>
-          </div>
+      <div
+        data-photo
+        onMouseMove={handleMove}
+        onMouseLeave={handleLeave}
+        className="relative z-10 h-[58vh] w-[min(78vw,380px)] will-change-transform"
+      >
+        <Image
+          src="/images/profile.png"
+          alt="Portrait"
+          fill
+          priority
+          sizes="(max-width: 768px) 78vw, 380px"
+          className="object-contain mix-blend-screen grayscale contrast-[1.05]"
+        />
+        <div
+          ref={maskRef}
+          aria-hidden
+          className="absolute inset-0 opacity-0 transition-opacity duration-300"
+        >
+          <Image
+            src="/images/profile.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 768px) 78vw, 380px"
+            className="object-contain mix-blend-screen contrast-[1.05]"
+          />
         </div>
+        <div
+          ref={ringRef}
+          aria-hidden
+          className="pointer-events-none absolute top-0 left-0 h-24 w-24 rounded-full border border-white/40 opacity-0 shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-opacity duration-300 will-change-transform"
+        />
+      </div>
 
-        {/* Role — centered on mobile, right-aligned on desktop */}
-        <span className="w-full text-center font-display text-xs tracking-wide text-grey-2 md:text-sm md:text-right md:max-w-[40vw] md:self-end">
-          {ROLE}
-        </span>
+      <div
+        data-copy
+        className="absolute bottom-[16vh] z-10 flex flex-col items-center gap-2 text-center"
+      >
+        <p className="font-display text-xl font-semibold tracking-tight">
+          {NAME}
+        </p>
+        <p className="max-w-xs text-sm text-grey-2">{ROLE}</p>
       </div>
 
       <div
         data-scrollcue
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex h-10 w-6 items-start justify-center rounded-full border border-white/25 p-1.5 md:bottom-8"
+        className="absolute bottom-8 z-10 flex h-10 w-6 items-start justify-center rounded-full border border-white/25 p-1.5"
       >
         <span className="h-2 w-1 animate-bounce rounded-full bg-grey-2" />
       </div>
