@@ -55,7 +55,7 @@ export function Nav() {
         </ul>
 
         <a
-          href="/cv.pdf"
+          href="/Muhammad_Ibrahim_resume.pdf"
           download
           onClick={() => setOpen(false)}
           className="rounded-full bg-fg px-4 py-1.5 text-sm font-medium text-bg transition-colors hover:bg-accent"
