@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { projects, type Project } from "@/lib/projects";
 
@@ -20,13 +21,27 @@ function ProjectCard({ project }: { project: Project }) {
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       className="group relative flex h-[88%] w-[82vw] shrink-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-grey-1 text-fg shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:w-[46vw] md:w-[40vw] lg:w-[30vw] xl:w-[26vw]"
     >
-      <Link href={`/projects/${project.slug}`} className="flex min-h-0 flex-1 flex-col">
+      <Link
+        href={project.external && project.github ? project.github : `/projects/${project.slug}`}
+        target={project.external ? "_blank" : undefined}
+        rel={project.external ? "noreferrer" : undefined}
+        className="flex min-h-0 flex-1 flex-col"
+      >
         <div
           className="relative min-h-0 flex-1 overflow-hidden"
           style={{
             background: `radial-gradient(120% 120% at 18% 0%, ${project.accent}26, transparent 55%), linear-gradient(160deg, ${project.accent}3a, #101010 75%)`,
           }}
         >
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={`${project.title} project visual`}
+              fill
+              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 40vw, 26vw"
+              className="object-contain p-12 opacity-90 transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : null}
           <span
             aria-hidden
             className="pointer-events-none absolute -right-6 -bottom-10 select-none font-display font-black uppercase leading-none text-white/[0.06] transition-transform duration-700 group-hover:-translate-x-2 group-hover:-translate-y-2"

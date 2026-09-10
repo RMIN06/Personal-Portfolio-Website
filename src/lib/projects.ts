@@ -10,10 +10,50 @@ export type Project = {
   stack: string[];
   live?: string;
   github?: string;
+  image?: string;
+  external?: boolean;
   accent: string;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "pocket-campus",
+    title: "PocketCampus",
+    tagline: "Student Finance · Next.js / FastAPI",
+    year: "2026",
+    role: "Full-stack Developer",
+    summary:
+      "A warm, installable expense tracker for students, with budgets, voice entry, campus places, and a ledger built around Pakistani Rupees.",
+    problem:
+      "Students need a simple way to understand daily spending without the friction and coldness of generic finance dashboards.",
+    solution:
+      "Built a mobile-first PWA with monthly budgets, voice-assisted expense capture, activity history, location-aware campus discovery, and secure Google authentication.",
+    stack: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "PWA", "OpenStreetMap"],
+    live: "https://pocket-campus-bice.vercel.app/dashboard/",
+    github: "https://github.com/RMIN06/PocketCampus",
+    image: "/projects/pocket-campus.png",
+    external: true,
+    accent: "#e27d60",
+  },
+  {
+    slug: "unilens",
+    title: "UniLens",
+    tagline: "University Discovery · Next.js",
+    year: "2026",
+    role: "Full-stack Developer",
+    summary:
+      "A student experience platform helping people compare Pakistani universities through verified, first-hand outcomes instead of marketing claims.",
+    problem:
+      "Choosing a university is difficult when rankings do not reflect the lived experience, field-specific outcomes, or recent graduate perspectives.",
+    solution:
+      "Created a contribution and discovery loop for pre-university students, undergraduates, and graduates, supported by weighted experience signals and community validation.",
+    stack: ["Next.js", "TypeScript", "MongoDB", "NextAuth", "React Three Fiber", "Framer Motion"],
+    live: "https://unilens-ten.vercel.app",
+    github: "https://github.com/RMIN06/UniLens",
+    image: "/projects/unilens.png",
+    external: true,
+    accent: "#7295d7",
+  },
   {
     slug: "barq-ai-assistant",
     title: "Barq AI Assistant",
